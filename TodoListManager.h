@@ -26,8 +26,8 @@ namespace tdl
         void addTask(const Task& task){m_tasks.emplace_back(task);}
         void removeTask(const std::size_t taskIndex){m_tasks.erase(m_tasks.begin() + static_cast<int>(taskIndex));}
         Task& viewTask(const std::size_t taskIndex) {return m_tasks[taskIndex];}
-        void markTaskComplete(const std::size_t taskIndex){m_tasks[taskIndex].m_isCompleted = true;}
 
+        void markTaskComplete(std::size_t taskIndex);
         void viewAllTasks() const;
         void writeToFile();
         void loadTasks();

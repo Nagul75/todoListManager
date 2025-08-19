@@ -82,5 +82,17 @@ void tdl::TodoListManager::viewAllTasks() const
     std::cout << '\n';
 }
 
+void tdl::TodoListManager::markTaskComplete(const std::size_t taskIndex)
+{
+    if (!m_tasks[taskIndex].m_isCompleted)
+    {
+        m_tasks[taskIndex].m_isCompleted = true;
+        std::cout << "Task completed successfully! \n \n";
+    }
+    else
+    {
+        std::cout << "Task already completed! \n \n";
+    }
+}
 
 
