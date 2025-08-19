@@ -8,8 +8,9 @@ void printMenu()
     std::cout << "1. View all tasks \n";
     std::cout << "2. Add a new task \n";
     std::cout << "3. Mark a task as complete \n";
-    std::cout << "4. Remove a task \n";
-    std::cout << "5. Save and quit \n";
+    std::cout << "4. View specific task details \n";
+    std::cout << "5. Remove a task \n";
+    std::cout << "6. Save and quit \n";
 }
 
 void addTask(tdl::TodoListManager& manager)
@@ -44,7 +45,18 @@ void removeTask(tdl::TodoListManager& manager)
     std::cout << "Task removed successfully! \n \n";
 }
 
-
+void viewTaskDetails(tdl::TodoListManager& manager)
+{
+    if (manager.getTasksSize() == 0)
+    {
+        std::cout << "No tasks present! Hooray! \n \n";
+        return;
+    }
+    const tdl::Task task{manager.viewTask(input::getIndex(manager.getTasksSize()))};
+    std::cout << "Status: " << (task.m_isCompleted ? "Completed" : "Incomplete :( ") << '\n';
+    std::cout << "Task Name: " << task.m_taskName << '\n';
+    std::cout << "Task description: \n" << task.m_taskDescription << "\n \n";
+}
 
 int main()
 {
@@ -56,7 +68,7 @@ int main()
         printMenu();
         const int choice{input::getChoice()};
         std::cout << '\n';
-        if (choice == 5)
+        if (choice == 6)
         {
             manager.writeToFile();
             break;
@@ -69,7 +81,9 @@ int main()
                 break;
         case 3: markTaskComplete(manager);
                 break;
-        case 4: removeTask(manager);
+        case 4: viewTaskDetails(manager);
+                break;
+        case 5: removeTask(manager);
                 break;
         default: std::cout << "Invalid choice! \n";
                 break;

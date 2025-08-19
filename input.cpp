@@ -11,7 +11,7 @@ int input::getChoice()
     int choice{};
     while (true)
     {
-        std::cout << "Enter index (1 - 5): ";
+        std::cout << "Enter index (1 - 6): ";
         std::cin >> choice;
         if (!std::cin)
         {
@@ -22,7 +22,7 @@ int input::getChoice()
             continue;
         }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        if (choice < 1 || choice > 5)
+        if (choice < 1 || choice > 6)
         {
             std::cout << "Invalid bounds! Try again! \n";
             continue;
