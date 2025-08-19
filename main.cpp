@@ -18,21 +18,30 @@ void addTask(tdl::TodoListManager& manager)
     const std::string taskName{input::getTaskName()};
     const std::string taskDescription(input::getTaskDescription());
     manager.addTask({complete, taskName, taskDescription});
-    std::cout << "Task added successfully! \n";
+    std::cout << "Task added successfully! \n \n";
 }
 
 void markTaskComplete(tdl::TodoListManager& manager)
 {
+    if (manager.getTasksSize() == 0)
+    {
+        std::cout << "No tasks present! Hooray! \n \n";
+        return;
+    }
     const std::size_t index{input::getIndex(manager.getTasksSize())};
     manager.markTaskComplete(index);
-    std::cout << "Task completed successfully! \n";
 }
 
 void removeTask(tdl::TodoListManager& manager)
 {
+    if (manager.getTasksSize() == 0)
+    {
+        std::cout << "No tasks present! Hooray! \n \n";
+        return;
+    }
     const std::size_t index{input::getIndex(manager.getTasksSize())};
     manager.removeTask(index);
-    std::cout << "Task removed successfully! \n";
+    std::cout << "Task removed successfully! \n \n";
 }
 
 
@@ -41,6 +50,7 @@ int main()
 {
     tdl::TodoListManager manager{};
     std::cout << "Todo List \n";
+    std::cout << "Don't forget to save before exiting! \n \n";
     while (true)
     {
         printMenu();
