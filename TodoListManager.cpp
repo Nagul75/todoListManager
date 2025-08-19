@@ -66,6 +66,11 @@ void tdl::TodoListManager::writeToFile()
 
 void tdl::TodoListManager::viewAllTasks() const
 {
+    if (m_tasks.empty())
+    {
+        std::cout << "No tasks present! Hooray!\n \n";
+        return;
+    }
     int taskIndex{0};
     std::cout << "i) Status | Task Name \n";
     for (const auto& task: m_tasks)
