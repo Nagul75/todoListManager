@@ -45,6 +45,7 @@ int main()
     {
         printMenu();
         const int choice{input::getChoice()};
+        std::cout << '\n';
         if (choice == 5)
         {
             manager.writeToFile();
