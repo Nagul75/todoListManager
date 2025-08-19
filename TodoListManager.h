@@ -24,12 +24,16 @@ namespace tdl
         TodoListManager();
         [[nodiscard]] std::size_t getTasksSize() const { return m_tasks.size();}
         void addTask(const Task& task){m_tasks.emplace_back(task);}
-        void removeTask(const std::size_t taskIndex){m_tasks.erase(m_tasks.begin() + static_cast<int>(taskIndex));}
+        void removeTask(const std::size_t taskIndex)
+        {
+            if (taskIndex >= m_tasks.size()) { return; }
+            m_tasks.erase(m_tasks.begin() + static_cast<int>(taskIndex));
+        }
         Task& viewTask(const std::size_t taskIndex) {return m_tasks[taskIndex];}
 
         void markTaskComplete(std::size_t taskIndex);
         void viewAllTasks() const;
-        void writeToFile();
+        void writeToFile() const;
         void loadTasks();
     private:
         std::vector<Task> m_tasks{};

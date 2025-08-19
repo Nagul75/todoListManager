@@ -49,7 +49,7 @@ void tdl::TodoListManager::loadTasks()
 }
 
 
-void tdl::TodoListManager::writeToFile()
+void tdl::TodoListManager::writeToFile() const
 {
     std::ofstream outFile("tasks.txt");
     if (outFile.is_open())
@@ -84,6 +84,7 @@ void tdl::TodoListManager::viewAllTasks() const
 
 void tdl::TodoListManager::markTaskComplete(const std::size_t taskIndex)
 {
+    if (taskIndex >= m_tasks.size()) { return; }
     if (!m_tasks[taskIndex].m_isCompleted)
     {
         m_tasks[taskIndex].m_isCompleted = true;
