@@ -1,3 +1,0 @@
-/home/regal/repos/todoListManager/CMakeFiles/todoListManager.dir
-/home/regal/repos/todoListManager/CMakeFiles/edit_cache.dir
-/home/regal/repos/todoListManager/CMakeFiles/rebuild_cache.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/todoListManager.dir/main.cpp.o CMakeFiles/todoListManager.dir/TodoListManager.cpp.o CMakeFiles/todoListManager.dir/input.cpp.o -o todoListManager 
